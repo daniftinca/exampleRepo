@@ -12,17 +12,6 @@ public class DogRepository extends InMemoryRepository<Dog> {
     }
 
     @Override
-    public Dog create(Dog obj) {
-        this.repoList.add(obj);
-        return obj;
-    }
-
-    @Override
-    public List<Dog> getAll() {
-        return this.repoList;
-    }
-
-    @Override
     public Dog update(Dog obj) {
         Dog dogToUpdate = this.repoList.stream()
                 .filter(dog -> dog.getId() == obj.getId())
@@ -33,11 +22,4 @@ public class DogRepository extends InMemoryRepository<Dog> {
 
         return dogToUpdate;
     }
-
-    @Override
-    public void delete(Dog obj) {
-        this.repoList.remove(obj);
-    }
-
-
 }
